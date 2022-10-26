@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const RightSideSummary = ({catagory}) => {
-    console.log(catagory);
+    // console.log(catagory);
     const {name} = catagory;
     return (
         <div>

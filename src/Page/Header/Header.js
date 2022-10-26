@@ -1,8 +1,27 @@
-import React from 'react';
+import {  signOut, getAuth } from 'firebase/auth';
+import React, { useContext } from 'react';
 import { Container, Image, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+import app from '../../firebase/firebase.config';
+
+
+
+const auth = getAuth(app);
 
 const Header = () => {
+    const {user, logOut} = useContext(AuthContext);
+    console.log(user);
+
+    const handleGoogleSignOut = () =>{
+        signOut(auth)
+        .then(() => {
+          console.log({})
+        })
+        .catch(() =>{
+          console.log({})
+        })
+      }
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
@@ -19,6 +38,8 @@ const Header = () => {
             <Link className='me-3 text-white fw-bold fs-5' to='/dark'>Dark</Link>
             <Link className='me-3 text-white fw-bold fs-5' to='/login'>Login</Link>
             <Link className='me-3 text-white fw-bold fs-5' to='/register'>Register</Link>
+            <button onClick={handleGoogleSignOut}>Sign Out</button>
+            {<p>user?.email</p>}
           </Nav>
         </Navbar.Collapse>
       </Container>
