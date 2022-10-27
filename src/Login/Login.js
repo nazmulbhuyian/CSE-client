@@ -1,11 +1,46 @@
+import { GoogleAuthProvider, getAuth, GithubAuthProvider, signInWithPopup } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider/AuthProvider';
+import app from '../firebase/firebase.config';
+
+
+const auth = getAuth(app)
 
 const Login = () => {
+
+  const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
+
+    const handleGoogleSignIn = () =>{
+        signInWithPopup(auth, googleProvider)
+        .then(result => {
+            const user = result.user;
+            // setUser(user);
+            console.log(user);
+          })
+      
+          .catch(error => {
+            console.error('error:', error);
+          })
+    }
+
+    const handleGithubSignOut = () =>{
+        signInWithPopup(auth, githubProvider)
+        .then(result=>{
+          const user = result.user
+        //   setUser(user)
+          console.log(user);
+        })
+        .catch(error =>{
+          console.log('error', error);
+        })
+      }
+
+
     const {signIn} = useContext(AuthContext);
     const navigate = useNavigate();
 
@@ -55,6 +90,10 @@ const Login = () => {
       <Button className='d-block' variant="primary" type="submit">
         Submit
       </Button>
+      <div className='mt-3'>
+    <button className='btn btn-primary me-3' onClick={handleGoogleSignIn}>Google Log In</button>
+    <button className='btn btn-primary' onClick={handleGithubSignOut}>Git Hub Log In</button>
+    </div>
       <p>Do not have a account <Link to='/register'>Go to Register</Link></p>
     </Form>
     
