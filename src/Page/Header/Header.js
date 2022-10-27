@@ -8,26 +8,25 @@ import { FaUserAlt } from 'react-icons/fa';
 
 
 const Header = () => {
-    const {user, logOut} = useContext(AuthContext);
-    console.log(user);
+  const { user, logOut } = useContext(AuthContext);
 
-    const handleGoogleSignOut = () =>{
-        logOut()
-        .then(() => {
-          console.log({})
-        })
-        .catch(() =>{
-          console.log({})
-        })
-      }
-    return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+  const handleGoogleSignOut = () => {
+    logOut()
+      .then(() => {
+        console.log({})
+      })
+      .catch(() => {
+        console.log({})
+      })
+  }
+  return (
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto align-items-center">
-          <Image src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXbNqmk1Sqpia56xioVWbnzVFOkznv6SPSjW3I2DBT&s'></Image>
-          <Navbar.Brand className='ms-3 fs-3 text-primary'>Developer Training</Navbar.Brand>
+            <Image src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXbNqmk1Sqpia56xioVWbnzVFOkznv6SPSjW3I2DBT&s'></Image>
+            <Navbar.Brand className='ms-3 fs-3 text-primary'>Developer Training</Navbar.Brand>
           </Nav>
           <Nav>
             <Link className='me-3 text-white fw-bold fs-5' to='/'>Courses</Link>
@@ -39,14 +38,17 @@ const Header = () => {
             <button onClick={handleGoogleSignOut}>Sign Out</button>
           </Nav>
         </Navbar.Collapse>
-        {user?.uid?
-              <Image style={{height: '40px'}} roundedCircle src={user?.photoURL}></Image>
-              :
-              <FaUserAlt></FaUserAlt> 
-          }
+        {user?.uid ?
+          // <Image style={{height: '40px'}} roundedCircle src={user?.photoURL}></Image>
+          <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title={user?.displayName}>
+            <Image style={{height: '40px'}} roundedCircle src={user?.photoURL}></Image>
+          </button>
+          :
+          <FaUserAlt></FaUserAlt>
+        }
       </Container>
     </Navbar>
-    );
+  );
 };
 
 export default Header;

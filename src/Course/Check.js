@@ -4,7 +4,6 @@ import { AuthContext } from '../Context/AuthProvider/AuthProvider';
 
 const Check = ({children}) => {
     const {user} = useContext(AuthContext);
-    console.log(user);
     return (
         <div className='m-5 border p-3'>
             <h1 className='text-primary'>Thank You For Check Up</h1>
