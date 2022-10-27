@@ -7,6 +7,7 @@ import FAQ from "../FAQ/FAQ";
 import Main from "../Layout/Main";
 import Login from "../Login/Login";
 import Register from "../Login/Register";
+import RightSideDetails from "../Page/RightSideNav/RightSideDetails";
 
 
 
@@ -44,6 +45,11 @@ export const routes = createBrowserRouter([
             {
                 path: '/check',
                 element: <Check></Check>
+            },
+            {
+                path: '/catagory/:id',
+                element: <RightSideDetails></RightSideDetails>,
+                loader: ({params}) => fetch(`http://localhost:5000/catagory/${params.id}`)
             }
         ]
     }

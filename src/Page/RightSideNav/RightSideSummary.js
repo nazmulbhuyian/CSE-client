@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 const RightSideSummary = ({catagory}) => {
     // console.log(catagory);
-    const {name} = catagory;
+    const {id, name} = catagory;
     return (
         <div>
             <div>
-            <Link to='/faq/:id'>{name}</Link>
+            <Link to={`/catagory/${id}`}>{name}</Link>
         </div>
         </div>
     );
