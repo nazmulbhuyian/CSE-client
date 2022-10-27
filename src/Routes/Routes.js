@@ -53,5 +53,9 @@ export const routes = createBrowserRouter([
                 loader: ({params}) => fetch(`http://localhost:5000/catagory/${params.id}`)
             }
         ]
+    },
+    {
+        path: '*',
+        element: <h1>Opps Nothing Found</h1>
     }
 ]);

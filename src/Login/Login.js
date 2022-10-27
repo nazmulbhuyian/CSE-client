@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -10,6 +11,8 @@ const Login = () => {
 
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
+
+    const [error, setError] = useState(null);
 
 
     const handleSubmit = event =>{
@@ -27,7 +30,10 @@ const Login = () => {
             form.reset();
             navigate(from, {replace: true});
         })
-        .catch(error => console.error(error));
+        .catch(error => {
+          console.error(error)
+          setError(error.message)
+        });
     }
     return (
         <Form onSubmit={handleSubmit}>
@@ -41,8 +47,12 @@ const Login = () => {
         <Form.Label>Password</Form.Label>
         <Form.Control name='password' type="password" placeholder="Password" />
       </Form.Group>
+
+      <Form.Text className="text-danger">
+            {error}
+        </Form.Text>
       
-      <Button variant="primary" type="submit">
+      <Button className='d-block' variant="primary" type="submit">
         Submit
       </Button>
       <p>Do not have a account <Link to='/register'>Go to Register</Link></p>
