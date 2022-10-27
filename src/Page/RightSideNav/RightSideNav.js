@@ -10,8 +10,8 @@ const RightSideNav = () => {
         .then(data => setCatagories(data))
     }, [])
     return (
-        <div>
-            <h1>This is right side</h1>
+        <div className='ms-5'>
+            <h1 className='fw-bold'>Where You Know !!</h1>
             <div>
                 {
                     catagories.map(catagory => <RightSideSummary key={catagory.id} catagory={catagory}></RightSideSummary>)

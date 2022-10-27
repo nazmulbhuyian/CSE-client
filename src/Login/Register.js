@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import {getAuth, GithubAuthProvider, GoogleAuthProvider, signInWithPopup} from 'firebase/auth'
 import app from '../firebase/firebase.config';
 import { AuthContext } from '../Context/AuthProvider/AuthProvider';
+import { Link } from 'react-router-dom';
 
 const auth = getAuth(app)
 
@@ -56,11 +57,6 @@ const Register = () => {
             setError('Password should be 6 character or more')
             return;
         }
-        
-        // else if(password !== confirm){
-        //     setError('your password did not match')
-        //     return;
-        // }
 
         createUser(email, password, name)
         .then(result =>{
@@ -86,9 +82,7 @@ const Register = () => {
         <Form.Label>Password</Form.Label>
         <Form.Control name='password' type="password" placeholder="Password" />
       </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
+      
       <Button variant="primary" type="submit">
         Register
       </Button>
@@ -96,8 +90,11 @@ const Register = () => {
           {error}
         </Form.Text>
     </Form>
-    <button onClick={handleGoogleSignIn}>Google Log In</button>
-    <button onClick={handleGithubSignOut}>Git Hub Log In</button>
+    <div className='mt-3'>
+    <button className='btn btn-primary me-3' onClick={handleGoogleSignIn}>Google Log In</button>
+    <button className='btn btn-primary' onClick={handleGithubSignOut}>Git Hub Log In</button>
+    </div>
+    <p>Already have a Account <Link to='/login'>Plz Login</Link></p>
         </div>
     );
 };

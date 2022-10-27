@@ -4,6 +4,7 @@ import { Container, Image, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import app from '../../firebase/firebase.config';
+import { FaUser, FaUserAlt } from 'react-icons/fa';
 
 
 
@@ -42,9 +43,9 @@ const Header = () => {
           </Nav>
         </Navbar.Collapse>
         {user?.uid?
-              <img src={user?.photoURL}></img>
+              <Image style={{height: '40px'}} roundedCircle src={user?.photoURL}></Image>
               :
-              ''  
+              <FaUserAlt></FaUserAlt> 
           }
       </Container>
     </Navbar>

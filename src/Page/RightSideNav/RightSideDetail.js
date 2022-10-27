@@ -6,14 +6,14 @@ const RightSideDetail = ({detail}) => {
     const {category_id, details, image_url, rating, title, total_view} = detail;
     
     return (
-        <Card>
+        <Card className='mt-5 mb-5'>
       <Card.Img variant="top" src={image_url} />
       <Card.Body>
-        <Card.Title>{title}</Card.Title>
+        <Card.Title className='fs-3'>{title}</Card.Title>
         <Card.Text> {details} </Card.Text>
-        <div>
-            <p>{rating}</p>
-            <p>{total_view}</p>
+        <div className='d-flex justify-content-between fw-bold'>
+            <p>Ratting: {rating}</p>
+            <p>Total-View: {total_view}</p>
         </div>
         <Link to='/check'><Button variant="primary">Go To Checkout</Button></Link>
       </Card.Body>

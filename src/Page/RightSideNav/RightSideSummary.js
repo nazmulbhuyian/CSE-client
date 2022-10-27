@@ -6,9 +6,9 @@ const RightSideSummary = ({catagory}) => {
     const {id, name} = catagory;
     return (
         <div>
-            <div>
-            <Link to={`/catagory/${id}`}>{name}</Link>
-        </div>
+            <div className='ms-5'>
+                <Link className='fw-bold fs-3' to={`/catagory/${id}`}>{name}</Link>
+            </div>
         </div>
     );
 };

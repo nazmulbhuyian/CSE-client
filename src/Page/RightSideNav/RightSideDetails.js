@@ -1,6 +1,5 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
-import CourseCardDetails from '../../Course/CourseCardDetails';
 import RightSideDetail from './RightSideDetail';
 
 const RightSideDetails = () => {

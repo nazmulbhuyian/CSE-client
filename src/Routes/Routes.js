@@ -8,6 +8,7 @@ import Main from "../Layout/Main";
 import Login from "../Login/Login";
 import Register from "../Login/Register";
 import RightSideDetails from "../Page/RightSideNav/RightSideDetails";
+import PrivateRoutes from "./PrivateRoutes";
 
 
 
@@ -44,7 +45,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/check',
-                element: <Check></Check>
+                element: <PrivateRoutes><Check></Check></PrivateRoutes>
             },
             {
                 path: '/catagory/:id',

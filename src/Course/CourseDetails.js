@@ -8,12 +8,12 @@ const CourseDetails = ({detail}) => {
             <img src={image_url} class="card-img-top" alt="..."></img>
             <div class="card-body">
                 <h5 class="card-title">{name}</h5>
-                <div>
-                    <p>{rating}</p>
-                    <p>{total_view}</p>
+                <div className='d-flex justify-content-between text-secondary fw-bold mt-2'>
+                    <p>Rating: {rating}</p>
+                    <p>Total-View: {total_view}</p>
                 </div>
             </div>
-            <Link to={`course/${id}`}>Go to detail</Link>
+            <Link className='btn btn-primary' to={`course/${id}`}>Go to detail</Link>
         </div>
     );
 };
