@@ -27,9 +27,9 @@ const Header = () => {
       <Container>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="me-auto align-items-center">
           <Image src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXbNqmk1Sqpia56xioVWbnzVFOkznv6SPSjW3I2DBT&s'></Image>
-          <Navbar.Brand href="#home">About CSE</Navbar.Brand>
+          <Navbar.Brand className='ms-3 fs-3 text-primary'>Developer Training</Navbar.Brand>
           </Nav>
           <Nav>
             <Link className='me-3 text-white fw-bold fs-5' to='/'>Courses</Link>
