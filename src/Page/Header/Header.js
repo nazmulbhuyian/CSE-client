@@ -1,14 +1,11 @@
-import {  signOut, getAuth } from 'firebase/auth';
+
 import React, { useContext } from 'react';
 import { Container, Image, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
-import app from '../../firebase/firebase.config';
-import { FaUser, FaUserAlt } from 'react-icons/fa';
+import { FaUserAlt } from 'react-icons/fa';
 
 
-
-// const auth = getAuth(app);
 
 const Header = () => {
     const {user, logOut} = useContext(AuthContext);
@@ -36,7 +33,7 @@ const Header = () => {
             <Link className='me-3 text-white fw-bold fs-5' to='/'>Courses</Link>
             <Link className='me-3 text-white fw-bold fs-5' to='/blog'>Blog</Link>
             <Link className='me-3 text-white fw-bold fs-5' to='/faq'>FAQ</Link>
-            <Link className='me-3 text-white fw-bold fs-5' to='/dark'>Dark</Link>
+            <Link id='toogle' className='me-3 text-white fw-bold fs-5' to='/dark'>Dark</Link>
             <Link className='me-3 text-white fw-bold fs-5' to='/login'>Login</Link>
             <Link className='me-3 text-white fw-bold fs-5' to='/register'>Register</Link>
             <button onClick={handleGoogleSignOut}>Sign Out</button>

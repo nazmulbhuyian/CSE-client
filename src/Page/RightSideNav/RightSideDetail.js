@@ -3,7 +3,7 @@ import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const RightSideDetail = ({detail}) => {
-    const {category_id, details, image_url, rating, title, total_view} = detail;
+    const {details, image_url, rating, title, total_view} = detail;
     
     return (
         <Card className='mt-5 mb-5'>
