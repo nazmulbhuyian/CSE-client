@@ -7,14 +7,14 @@ import app from '../../firebase/firebase.config';
 
 
 
-const auth = getAuth(app);
+// const auth = getAuth(app);
 
 const Header = () => {
     const {user, logOut} = useContext(AuthContext);
     console.log(user);
 
     const handleGoogleSignOut = () =>{
-        signOut(auth)
+        logOut()
         .then(() => {
           console.log({})
         })
@@ -39,9 +39,13 @@ const Header = () => {
             <Link className='me-3 text-white fw-bold fs-5' to='/login'>Login</Link>
             <Link className='me-3 text-white fw-bold fs-5' to='/register'>Register</Link>
             <button onClick={handleGoogleSignOut}>Sign Out</button>
-            {<p>user?.email</p>}
           </Nav>
         </Navbar.Collapse>
+        {user?.uid?
+              <img src={user?.photoURL}></img>
+              :
+              ''  
+          }
       </Container>
     </Navbar>
     );

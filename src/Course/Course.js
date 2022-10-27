@@ -6,8 +6,7 @@ const Course = () => {
 
     const details = useLoaderData();
     return (
-        <div>
-            <h1>This is Home: {details.length}</h1>
+        <div className='mt-4 row'>
             {
                 details.map(detail => <CourseDetails key={detail.id} detail={detail}></CourseDetails>)
             }
