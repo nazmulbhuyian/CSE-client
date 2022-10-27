@@ -31,7 +31,6 @@ const Header = () => {
           <Nav>
             <Link className='me-3 text-white fw-bold fs-5' to='/'>Courses</Link>
             <Link className='me-3 text-white fw-bold fs-5' to='/blog'>Blog</Link>
-            <Link className='me-3 text-white fw-bold fs-5' to='/faq'>FAQ</Link>
             <Link id='toogle' className='me-3 text-white fw-bold fs-5' to='/dark'>Dark</Link>
             <Link className='me-3 text-white fw-bold fs-5' to='/login'>Login</Link>
             <Link className='me-3 text-white fw-bold fs-5' to='/register'>Register</Link>
