@@ -51,6 +51,7 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const name = form.name.value;
+        const photo = form.photo.value;
         
 
         if(password.length < 6){
@@ -58,7 +59,7 @@ const Register = () => {
             return;
         }
 
-        createUser(email, password, name)
+        createUser(email, password, name, photo)
         .then(result =>{
             const user = result.user;
             console.log(user);
@@ -73,6 +74,10 @@ const Register = () => {
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Your Name</Form.Label>
         <Form.Control name='name' type="text" placeholder="Enter name" />     
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Your Photo URL</Form.Label>
+        <Form.Control name='photo' type="text" placeholder="Enter Photo URL" />     
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
