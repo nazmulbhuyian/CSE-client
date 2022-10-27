@@ -15,7 +15,10 @@ const CourseCardDetailsSummery = ({detail}) => {
             <p>{rating}</p>
             <p>{total_view}</p>
         </div>
+        <div className='justify-content-between d-flex'>
         <Link to='/check'><Button variant="primary">Go To Checkout</Button></Link>
+        <Button variant="primary">Download</Button>
+        </div>
       </Card.Body>
     </Card>
     );
