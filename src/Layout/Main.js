@@ -19,7 +19,7 @@ const Main = () => {
                 </Col>     
             </Row>
         </Container>
-        <Footer></Footer>
+        <Footer className='ms-auto'></Footer>
         </div>
     );
 };
